@@ -1,0 +1,136 @@
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cacccc;
+    border-radius: 5px;
+}
+
+* {
+    /* for mozilla */
+    scrollbar-color: #cacccc #f0f0f0;
+    scrollbar-width: thin;
+}
+
+.grabbing * {
+    cursor: grabbing !important;
+}
+
+.kanbanCardTitle {
+    font-size: 1.25rem;
+    color: #4b4b4b;
+    margin-left: 1rem;
+}
+
+.kanbanDrop {
+    display: none;
+}
+
+.card:hover .kanbanDrop {
+    display: block;
+}
+
+.list-group-item {
+    border: none!important;
+    padding: 0!important;
+    margin: 0.75rem;
+    cursor: grab;
+}
+
+.kanban-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    overflow: auto;
+    margin: var(--wrapper-margin);
+    min-width: 100vw;
+    overflow-x: auto;
+}
+
+.kanban-columns-wrapper {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 20rem;
+}
+
+.kanban-column>* {
+    font-weight: normal;
+}
+
+.kanban-column {
+    height: calc(100vh - 350px);
+    overflow: auto;
+}
+
+.part {
+    border-radius: 12px;
+    background-color: #f7f7f7;
+    border: none;
+}
+
+.sub {
+    background-color: white!important;
+    border: none!important;
+}
+
+.single {
+    background-color: #d6dde7;
+    padding: 3px;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.kanban-tag {
+    padding: 0.3em 0.5em;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.75rem;
+    text-transform: capitalize;
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.w-1 {
+    font-weight: 600;
+}
+
+.drag-wrapper {
+    height: 100vh;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item-dropzone-area {
+    height: 2rem;
+    background: #888;
+    opacity: 0.8;
+    animation-duration: 0.5s;
+    animation-name: nodeInserted;
+}
+
+.kanban-date {
+    margin-left: 0.50rem;
+    margin-bottom: 1rem;
+    font-size: 0.90rem;
+    color: #4b4b4b;
+}
+
+.card-body.kanban-card-body {
+    padding-bottom: 0.5rem;
+}

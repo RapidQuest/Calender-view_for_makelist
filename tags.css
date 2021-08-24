@@ -1,0 +1,136 @@
+.tag {
+    border: none;
+    border-radius: 3px;
+    padding: 0.3em 0.65em;
+    text-transform: capitalize;
+    font-size: 0.78rem;
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* default */
+    background-color: #E0E0DE;
+    color: #565665;
+}
+
+.tag.lightpink {
+    background-color: #f9dcec;
+    color: #b12f7e;
+}
+
+.tag.mustdo {
+    background-color: #EAC7CB;
+    color: #a5283b;
+}
+
+.tag.agenda {
+    background-color: #deeac9;
+    color: #53732b;
+}
+
+.tag.someday {
+    background-color: #D2E8F5;
+    color: #456c8c;
+}
+
+.tag.purple {
+    background-color: #DACBEA;
+    color: #67498e;
+}
+
+.tag.bronze {
+    background-color: #FADBD0;
+    color: #9a5233;
+}
+
+.tag.aqua {
+    background-color: #C3E6E7;
+    color: #005f5d;
+    border: 1px solid #6D9698;
+}
+
+.tag.grey {
+    background-color: #E0E0DE;
+    color: #565665;
+}
+
+.tag.silver {
+    background-color: #E9EDEE;
+    color: #5a5a5a;
+}
+
+.tag.brown {
+    background-color: #E2D1CA;
+    color: #845243;
+}
+
+.tag.cranberry {
+    background-color: #C30F1F;
+    color: #fff;
+}
+
+.tag.orange {
+    background-color: #D63C06;
+    color: #fff;
+}
+
+.tag.brightorange {
+    background-color: #eb9f2e;
+    color: #fff;
+}
+
+.tag.peach {
+    background-color: #FF8B00;
+    color: #000;
+}
+
+.tag.maringold {
+    background-color: #EDA000;
+    color: #000;
+}
+
+.tag.lightgreen {
+    background-color: #169F11;
+    color: #000;
+}
+
+.tag.darkgreen {
+    background-color: #096A0B;
+    color: #fff;
+}
+
+.tag.teal {
+    background-color: #02B6C4;
+    color: #000;
+}
+
+.tag.lightblue {
+    background-color: #3089C3;
+    color: #fff;
+}
+
+.tag.darkblue {
+    background-color: #003862;
+    color: #fff;
+}
+
+.tag.lavender {
+    background-color: #7360EE;
+    color: #fff;
+}
+
+.tag.plum {
+    background-color: #77004B;
+    color: #fff;
+}
+
+.tag.lightgray {
+    background-color: #787471;
+    color: #fff;
+}
+
+.tag.darkgray {
+    background-color: #3B4248;
+    color: #fff;
+}
