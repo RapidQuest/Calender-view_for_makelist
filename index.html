@@ -8,7 +8,6 @@
     <title>Calender</title>
 
     <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./tags.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
@@ -19,7 +18,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue-fullcalendar@1.0.9/dist/vue-fullcalendar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
@@ -27,6 +26,48 @@
 </head>
 
 <body>
+  <!-- <div class='demo-app'>
+    <div class='demo-app-sidebar'>
+      <div class='demo-app-sidebar-section'>
+        <h2>Instructions</h2>
+        <ul>
+          <li>Select dates and you will be prompted to create a new event</li>
+          <li>Drag, drop, and resize events</li>
+          <li>Click an event to delete it</li>
+        </ul>
+      </div>
+      <div class='demo-app-sidebar-section'>
+        <label>
+          <input
+            type='checkbox'
+            :checked='calendarOptions.weekends'
+            @change='handleWeekendsToggle'
+          />
+          toggle weekends
+        </label>
+      </div>
+      <div class='demo-app-sidebar-section'>
+        <h2>All Events ({{ currentEvents.length }})</h2>
+        <ul>
+          <li v-for='event in currentEvents' :key='event.id'>
+            <b>{{ event.startStr }}</b>
+            <i>{{ event.title }}</i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class='demo-app-main'>
+      <FullCalendar
+        class='demo-app-calendar'
+        :options='calendarOptions'
+      >
+        <template v-slot:eventContent='arg'>
+          <b>{{ arg.timeText }}</b>
+          <i>{{ arg.event.title }}</i>
+        </template>
+      </FullCalendar>
+    </div>
+  </div> -->
     <div class="ui container">
 
         <div class="ui menu">
@@ -63,7 +104,7 @@
       <div class="ui container">
         <div class="ui grid">
           <div class="ui sixteen column">
-            <div id="app"></div>
+            <div id="calendar"></div>
           </div>
         </div>
       </div>
@@ -72,12 +113,13 @@
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
-
 <script type="module" src="./data.js"></script>
-<!-- <script type="module" src="./calender-view.js"></script> -->
-<script type="module" src="./script.js"></script>
+<script type="module" src="./calender-view.js"></script>
+<!-- <script type="module" src="./script.js"></script> -->
 
 </html>

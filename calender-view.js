@@ -38,6 +38,11 @@ $(document).ready(function() {
       },
       {
         title: 'Meeting',
+        start: '2016-12-12T12:30:00',
+        end: '2016-12-12T1:30:00'
+      },
+      {
+        title: 'Meeting',
         start: '2016-12-12T10:30:00',
         end: '2016-12-12T12:30:00'
       },
