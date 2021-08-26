@@ -39,7 +39,7 @@ const data = {
       users_upvoted: [],
       users_downvoted: [],
       text1: 6,
-      date2: "2021-08-21",
+      date2: "2021-08-24",
       text3: 2,
       text4: 6.93,
       choice5: "Regular Air",

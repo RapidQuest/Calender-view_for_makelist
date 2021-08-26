@@ -76,7 +76,6 @@ const app = new Vue({
                 };
                 allEvents.push(event);
               });
-              // console.log(typeof(allEvents));
               return allEvents;
         },
 
