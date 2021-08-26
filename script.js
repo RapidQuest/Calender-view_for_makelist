@@ -23,6 +23,22 @@ const app = new Vue({
               right: 'month,basicWeek,basicDay'
             },
             // defaultDate: '2016-12-12',
+            eventClick: function(info) {
+              // console.log(info);
+              var eventObj = info;
+              if (eventObj.url) {
+                alert(
+                  'Clicked ' + eventObj.title + '.\n' +
+                  'Will open ' + eventObj.url + ' in a new tab'
+                );
+
+                window.open(eventObj.url);
+
+                info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+              } else {
+                alert('Clicked ' + eventObj.title);
+              }
+            },
             navLinks: true, // can click day/week names to navigate views
             editable: true,
             eventLimit: true, // allow "more" link when too many events
@@ -91,4 +107,4 @@ const app = new Vue({
         },
     }
 });
-console.log(app.setUpCalenderView.events)
+// console.log(app.setUpCalenderView.events)
