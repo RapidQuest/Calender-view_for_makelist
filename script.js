@@ -15,7 +15,6 @@ const app = new Vue({
     methods: {
       setUpCalenderView(){
         console.log(this.calendarItems);
-        $(document).ready(function() {
     
           $('#calendar').fullCalendar({
             header: {
@@ -29,7 +28,6 @@ const app = new Vue({
             eventLimit: true, // allow "more" link when too many events
             events: this.calendarItems
           });
-        });
       },
         getformatedDate(str) {
             if (!str) {
@@ -55,8 +53,10 @@ const app = new Vue({
             let event;
               this.list.items.forEach(item => {
                 event = {
+                  id: item._id,
                   title: item[this.calendarViewMap.map.title].toString(),
-                  start: item[this.calendarViewMap.map.startDate]
+                  start: item.createdAt,
+                  end: item[this.calendarViewMap.map.startDate],
                 };
                 allEvents.push(event);
               });
@@ -91,4 +91,4 @@ const app = new Vue({
         },
     }
 });
-console.log(app.calendarItems)
+console.log(app.setUpCalenderView.events)

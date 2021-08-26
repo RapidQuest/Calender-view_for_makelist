@@ -24,12 +24,14 @@ $(document).ready(function() {
       {
         id: 999,
         title: 'Repeating Event',
-        start: '2016-12-09T16:00:00'
+        start: '2016-12-09T16:00:00',
+        description: 'Lecture'
       },
       {
         id: 999,
         title: 'Repeating Event',
-        start: '2016-12-16T16:00:00'
+        start: '2016-12-16T16:00:00',
+        description: 'Lecture'
       },
       {
         title: 'Conference',
