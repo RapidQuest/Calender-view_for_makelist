@@ -23,25 +23,12 @@ const app = new Vue({
               right: 'month,basicWeek,basicDay'
             },
             // defaultDate: '2016-12-12',
-            eventClick: function(info) {
-              // console.log(info);
-              var eventObj = info;
-              if (eventObj.url) {
-                alert(
-                  'Clicked ' + eventObj.title + '.\n' +
-                  'Will open ' + eventObj.url + ' in a new tab'
-                );
-
-                window.open(eventObj.url);
-
-                info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
-              } else {
-                alert('Clicked ' + eventObj.title);
-              }
+            eventClick: function(eventInfo) {
+              console.log(eventInfo);
             },
-            navLinks: true, // can click day/week names to navigate views
+            navLinks: true, 
             editable: true,
-            eventLimit: true, // allow "more" link when too many events
+            eventLimit: true,
             events: this.calendarItems
           });
       },
@@ -71,8 +58,8 @@ const app = new Vue({
                 event = {
                   id: item._id,
                   title: item[this.calendarViewMap.map.title].toString(),
-                  start: item.createdAt,
-                  end: item[this.calendarViewMap.map.startDate],
+                  start: item[this.calendarViewMap.map.startDate],
+                  end:item[this.calendarViewMap.map.endDate]
                 };
                 allEvents.push(event);
               });
@@ -94,16 +81,16 @@ const app = new Vue({
             viewmap.map["title"] = fields[0]["name"];
             // viewmap.map["id"] = "_id";
 
-              viewmap.map["startDate"] = (_.filter(fields, {
-                  type: "date",
-              })[0] || "")["name"];
-            if (allDateFields.length > 1) {
-            viewmap.map["endDate"] = (_.filter(fields, {
+            viewmap.map["startDate"] = (_.filter(fields, {
                 type: "date",
-            })[1] || "")["name"];
-          }
+            })[0] || "")["name"];
+
+            if (allDateFields.length > 1) {
+              viewmap.map["endDate"] = (_.filter(fields, {
+                  type: "date",
+              })[1] || "")["name"];
+            }
             return viewmap;
         },
     }
 });
-// console.log(app.setUpCalenderView.events)
