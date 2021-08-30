@@ -16,21 +16,24 @@ const app = new Vue({
       setUpCalenderView(){
         console.log(this.calendarItems);
     
-          $('#calendar').fullCalendar({
-            header: {
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl,{
+            // defaultDate: '2016-12-12',
+            initialView: 'dayGridMonth',
+            // initialDate: '2021-07-07',
+            headerToolbar: {
               left: 'prev,next today',
               center: 'title',
-              right: 'month,basicWeek,basicDay'
+              right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
-            // defaultDate: '2016-12-12',
+            events: this.calendarItems,
             eventClick: function(eventInfo) {
               console.log(eventInfo);
             },
-            navLinks: true, 
-            editable: true,
-            eventLimit: true,
-            events: this.calendarItems
           });
+          calendar.render();
+        });
       },
         getformatedDate(str) {
             if (!str) {
