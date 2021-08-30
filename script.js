@@ -15,6 +15,7 @@ const app = new Vue({
     methods: {
       setUpCalenderView(){
         console.log(this.calendarItems);
+        let allItems = this.calendarItems;
     
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -27,7 +28,7 @@ const app = new Vue({
               center: 'title',
               right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
-            events: this.calendarItems,
+            events: allItems,
             eventClick: function(eventInfo) {
               console.log(eventInfo);
             },
