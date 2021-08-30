@@ -30,7 +30,7 @@ const app = new Vue({
             },
             events: allItems,
             eventClick: function(eventInfo) {
-              console.log(eventInfo);
+              console.log(eventInfo.event);
             },
           });
           calendar.render();
