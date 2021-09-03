@@ -26,10 +26,18 @@
 </head>
 
 <body>
-    <div class="container">
-
-        <div class="mt-4" id="app">
-            <div id="calendar"></div>
+    <div class="container-fluid">
+        <div class="row mt-5" id="app">
+            <div class="col-2 ml-3">
+                <div class="card rounded-0 mt-5" style="border: none;"id="mydraggable">
+                    <div class="" v-for="(item,index) in undated" :key="index" >
+                        <div class="draggable fc-event">{{item[calendarViewMap.map.title]}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10">
+                <div id="calendar"></div>
+            </div>
         </div>
   
     </div>

@@ -4,6 +4,7 @@ const app = new Vue({
     data() {
         return {
             list: data,
+            undated:[],
         };
     },
 
@@ -14,17 +15,19 @@ const app = new Vue({
 
     methods: {
       setUpCalenderView(){
-        console.log(this.calendarItems);
+        // console.log(this.calendarItems);
         let allItems = this.calendarItems;
         let allDataItems = this.list.items;
         let mapItems =this.calendarViewMap;
     
         document.addEventListener('DOMContentLoaded', function() {
+            var Draggable = FullCalendar.Draggable;
             var calendarEl = document.getElementById('calendar');
+            let dragableContainer = document.getElementById('mydraggable');
             var calendar = new FullCalendar.Calendar(calendarEl,{
-            // defaultDate: '2016-12-12',
             initialView: 'dayGridMonth',
             editable: true,
+            droppable: true,
             eventDrop: function(info){
               allDataItems.forEach(item => {
                 if(info.event.id == item._id){
@@ -33,18 +36,6 @@ const app = new Vue({
                 }
               });
             },
-              // alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-
-              
-              // if (!confirm("Are you sure about this change?")) {
-              //   info.revert();
-              // }
-              // if(info.event.id == this.list.items._id){
-              //   this.list.items.calendarViewMap[startDate] =info.event.start;
-              //   console.log('done');
-              // }
-              // },
-            // initialDate: '2021-07-07',
             headerToolbar: {
               left: 'prev,next today',
               center: 'title',
@@ -54,8 +45,21 @@ const app = new Vue({
             eventClick: function(eventInfo) {
               console.log(eventInfo.event);
             },
+            drop: function(info) {
+                info.draggedEl.parentNode.removeChild(info.draggedEl);
+            },
           });
           calendar.render();
+          new Draggable(dragableContainer, {
+            itemSelector: '.fc-event',
+            eventData: function(eventEl) {
+              console.log(eventEl);
+              return {
+                title: eventEl.innerText
+              };
+            }
+          });
+
         });
       },
         getformatedDate(str) {
@@ -81,14 +85,20 @@ const app = new Vue({
             const allEvents=[];
             let event;
               this.list.items.forEach(item => {
-                event = {
-                  id: item._id,
-                  title: item[this.calendarViewMap.map.title].toString(),
-                  start: item[this.calendarViewMap.map.startDate],
-                  end:item[this.calendarViewMap.map.endDate]
-                };
-                allEvents.push(event);
+                if(item[this.calendarViewMap.map.startDate] == '' || item[this.calendarViewMap.map.startDate] == undefined){
+                  this.undated.push(item);
+                }else{
+                  event = {
+                    id: item._id,
+                    title: item[this.calendarViewMap.map.title].toString(),
+                    start: item[this.calendarViewMap.map.startDate],
+                    end:item[this.calendarViewMap.map.endDate]
+                  };
+                  allEvents.push(event);
+                }
               });
+              console.log(this.undated);
+              console.log(allEvents);
               return allEvents;
         },
 
