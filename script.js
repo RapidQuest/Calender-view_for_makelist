@@ -28,6 +28,7 @@ const app = new Vue({
             initialView: 'dayGridMonth',
             editable: true,
             droppable: true,
+            dayMaxEvents: true,
             eventDrop: function(info){
               allDataItems.forEach(item => {
                 if(info.event.id == item._id){
@@ -53,7 +54,6 @@ const app = new Vue({
           new Draggable(dragableContainer, {
             itemSelector: '.fc-event',
             eventData: function(eventEl) {
-              console.log(eventEl);
               return {
                 title: eventEl.innerText
               };
