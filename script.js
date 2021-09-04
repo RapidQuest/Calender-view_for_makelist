@@ -54,7 +54,10 @@ const app = new Vue({
           new Draggable(dragableContainer, {
             itemSelector: '.fc-event',
             eventData: function(eventEl) {
+              var id = document.getElementById('dragEvent').getAttribute('data-id');
+              console.log(id);
               return {
+                id: id,
                 title: eventEl.innerText
               };
             }
@@ -114,6 +117,7 @@ const app = new Vue({
                     name: "calendar",
                     map: {},
                 }
+                viewmap.map["id"] = "_id";
             viewmap.map["title"] = fields[0]["name"];
             // viewmap.map["id"] = "_id";
 

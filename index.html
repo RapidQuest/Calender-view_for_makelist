@@ -29,9 +29,11 @@
     <div class="container-fluid">
         <div class="row mt-5" id="app">
             <div class="col-2 ml-3">
-                <div class="card rounded-0 mt-5" style="border: none;"id="mydraggable">
-                    <div class="" v-for="(item,index) in undated" :key="index" >
-                        <div class="draggable fc-event">{{item[calendarViewMap.map.title]}}</div>
+                <div class="card rounded-0 mt-5" style="border: none;background-color:#f1f1f1"id="mydraggable">
+                    <div class="card-body">   
+                        <div class="my-3" v-for="(item,index) in undated" :key="index" >
+                            <div class="draggable fc-event ml-2" :data-id="item[calendarViewMap.map.id]" id="dragEvent">{{item[calendarViewMap.map.title]}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,7 +41,6 @@
                 <div id="calendar"></div>
             </div>
         </div>
-  
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
